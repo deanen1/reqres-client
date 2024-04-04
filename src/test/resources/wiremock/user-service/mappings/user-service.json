@@ -1,0 +1,66 @@
+{
+  "mappings": [
+    {
+      "scenarioName": "Get Users",
+      "requiredScenarioState": "Success",
+      "request": {
+        "method": "GET",
+        "url": "/api/users?page=1",
+        "headers": {
+          "Accept": {
+            "equalTo": "application/json"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "page": 1,
+          "per_page": 6,
+          "total": 2,
+          "total_pages": 1,
+          "data": [
+            {
+              "id": 1,
+              "email": "fred@reqres.in",
+              "first_name": "Fred",
+              "last_name": "Flintstone",
+              "avatar": "https://reqres.in/img/faces/1-image.jpg"
+            },
+            {
+              "id": 2,
+              "email": "barney@reqres.in",
+              "first_name": "Barney",
+              "last_name": "Rubble",
+              "avatar": "https://reqres.in/img/faces/2-image.jpg"
+            }
+          ],
+          "support": {
+            "url": "https://reqres.in/#support-heading",
+            "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "scenarioName": "Get Users",
+      "requiredScenarioState": "Error",
+      "request": {
+        "method": "GET",
+        "url": "/api/users?page=1",
+        "headers": {
+          "Accept": {
+            "equalTo": "application/json"
+          }
+        }
+      },
+      "response": {
+        "status": 500,
+        "body": "ERROR"
+      }
+    }
+  ]
+}
