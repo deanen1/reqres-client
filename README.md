@@ -6,5 +6,5 @@
 ## Running the app
 
 ```
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
