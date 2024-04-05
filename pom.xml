@@ -2,7 +2,25 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <version>2.7.18</version> <!-- lookup parent from repository -->
+    <relativePath/>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <description>reqres-client</description>
+  <groupId>io.github.deanen1</groupId>
   <artifactId>reqres-client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>reqres-client</name>
+
+  <properties>
+    <java.version>17</java.version>
+    <wiremock-spring-boot.version>2.1.2</wiremock-spring-boot.version>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -38,39 +56,35 @@
   </build>
   <dependencies>
     <dependency>
-      <artifactId>spring-boot-starter</artifactId>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
     </dependency>
     <dependency>
-      <artifactId>spring-boot-starter-webflux</artifactId>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
     </dependency>
 
     <dependency>
-      <artifactId>spring-boot-starter-test</artifactId>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <artifactId>wiremock-spring-boot</artifactId>
       <groupId>com.maciejwalkowiak.spring</groupId>
+      <artifactId>wiremock-spring-boot</artifactId>
       <scope>test</scope>
       <version>2.1.2</version>
     </dependency>
   </dependencies>
-  <description>reqres-client</description>
-  <groupId>io.github.deanen1</groupId>
-  <modelVersion>4.0.0</modelVersion>
-  <name>reqres-client</name>
-  <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <groupId>org.springframework.boot</groupId>
-    <relativePath/>
-    <version>2.7.18</version> <!-- lookup parent from repository -->
-  </parent>
-  <properties>
-    <java.version>17</java.version>
-  </properties>
 
-  <version>0.0.1-SNAPSHOT</version>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.maciejwalkowiak.spring</groupId>
+        <artifactId>wiremock-spring-boot</artifactId>
+        <scope>test</scope>
+        <version>${wiremock-spring-boot.version>}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
